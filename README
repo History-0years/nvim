@@ -1,3 +1,114 @@
-BY KEVIN
-REFER TO ECONVIM
+# Neovim configration
+
+---------------
+
+## backup and replace
+
+```shell
+$ mv ~/.config/nvim ~/.config/nvim.bak
+$ mv ~/.local/share/nvim ~/.local/share.nvim.bak
+
+$ git clone --depth 1 https://github.com/ecosse3/nvim.git ~/.config/nvim
+```
+
+- mason
+
+  formatter 中 也有 `black` 啊，研究下不用 `null-ls`, 用 `mason` ?
+
+- shade.lua
+
+  ```shell
+  E5108: Error executing lua /home/anna/.local/share/nvim/lazy/shade.nvim/lua/shade.lua:182: Invalid window id: 1005
+  
+  Error executing Lua callback: vim/_editor.lua:0: nvim_exec2()..WinClosed Autocommands for "*": Vim(call):E5108: Error
+   executing lua /home/anna/.local/share/nvim/lazy/shade.nvim/lua/shade.lua:326: Invalid window id: 1010
+  stack traceback:
+          [C]: in function 'nvim_win_close'
+          /home/anna/.local/share/nvim/lazy/shade.nvim/lua/shade.lua:326: in function 'on_win_closed'
+          /home/anna/.local/share/nvim/lazy/shade.nvim/lua/shade.lua:439: in function 'fn'
+          /home/anna/.local/share/nvim/lazy/shade.nvim/lua/shade.lua:456: in function </home/anna/.local/share/nvim/laz
+  y/shade.nvim/lua/shade.lua:428>
+          [C]: in function 'nvim_exec2'
+          vim/_editor.lua: in function 'cmd'
+          ...cal/share/nvim/lazy/mason.nvim/lua/mason/api/command.lua:204: in function <...cal/share/nvim/lazy/mason.nv
+  im/lua/mason/api/command.lua:202>
+  stack traceback:
+          [C]: in function 'nvim_exec2'
+          vim/_editor.lua: in function 'cmd'
+          ...cal/share/nvim/lazy/mason.nvim/lua/mason/api/command.lua:204: in function <...cal/share/nvim/lazy/mason.nv
+  im/lua/mason/api/command.lua:202>
+  
+  ```
+
+  
+
+```shell
+# to validate neovim setup
+:checkhealth
+```
+
+
+
+在 `ecovim` 基础上，进一步删减的配置。
+
+文件树是这样的
+
+```shell
+-- init.lua     # 入口
+-- lua/
+   -- config/   # 存放 vim 基础配置和快捷键、插件管理器、默认的配色
+      -- EcoVim.lua        # 统一指定某些基础插件、界面的初始状态
+      -- options.lua       # vim 基础配置
+      -- keymappings.lua   # 快捷键映射
+      -- colorscheme.lua   # 默认配色方案的修改后配置,位置要否调整？ TODO
+      -- lazy.lua          # 插件管理器
+      -- autocmds.lua      # TODO
+      
+   -- utils/    # 存放全局变量、函数、图标
+      -- init.lua          # 定义常用的全局基础函数
+      -- functions.lua     # 第一次运行 Ecovim 相关检测
+      -- globals.lua       # 两个简单函数，不知道干嘛的。。。
+      -- icons.lua         # 定义全局图标 （需要nerd fonts 支持）
+      -- git.lua           # 定义的 git 相关函数，配合 gitsigns 插件
+      
+   -- internal
+      -- blame.lua         # shows git blame information as virtual text for the current line,TODO
+      -- cursorword.lua    # 定义cursorword 效果（有下划线什么的），入口文件不再引用
+      -- winbar.lua        # navic 插件相关，未使用该插件，入口文件不再引用
+      
+   -- plugins
+      -- 
+      
+      
+```
+
+
+
+## 1.  UI 
+
+
+
+## 2. General
+
+
+
+## 2. Navigating
+
+
+
+## 3. LSP
+
+### 3.1 Lsp base
+
+
+
+### 3.2 LSP Cmp
+
+
+
+### 3.3 LSP Addons
+
+
+
+### 3.4 LSP Formatting and Linting
 
